@@ -1,3 +1,5 @@
+#include <X11/XF86keysym.h>
+
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -63,6 +65,10 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
 
+static const char *togglemutecmd[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+static const char *volumeupcmd[] = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
+static const char *volumedowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute" };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -99,7 +105,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_underscore,             7)
 	TAGKEYS(                        XK_ccedilla,               8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { MODKEY,                       XK_w,      spawn,          {.v = firefoxcmd } }
+  { MODKEY,                       XK_w,      spawn,          {.v = firefoxcmd } },
+  { 0,                            XF86XK_AudioMute, spawn, {.v = togglemutecmd } },
+  { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumedowncmd } },
+  { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeupcmd } },
 };
 
 /* button definitions */
