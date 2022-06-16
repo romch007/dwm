@@ -32,6 +32,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
   {  NULL ,     NULL,       "xeyes",    0,            1,           -1 },
   { NULL,       NULL,     "cmus",       1 << 3,       0,           -1 },
+  { NULL,       NULL,     "mutt",       1 << 4,       0,           -1 },
 	// { "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	// { NULL,       NULL,       "Firefox",  1 << 8,       0,           -1 },
 };
@@ -66,6 +67,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *firefoxcmd[] = { "firefox", NULL };
 static const char *cmuscmd[] = { "st", "-e", "cmus", NULL };
+static const char *muttcmd[] = { "st", "-e", "mutt", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -105,6 +107,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
   { MODKEY,                       XK_w,      spawn,          {.v = firefoxcmd } },
   { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = cmuscmd } },
+  { MODKEY|ShiftMask,             XK_e,      spawn,          {.v = muttcmd } },
 };
 
 /* button definitions */
