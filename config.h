@@ -69,6 +69,10 @@ static const char *firefoxcmd[] = { "firefox", NULL };
 static const char *cmuscmd[] = { "st", "-e", "cmus", NULL };
 static const char *muttcmd[] = { "st", "-e", "mutt", NULL };
 
+static const char *togglemute[]     = {"pamixer", "-t", NULL };
+static const char *increasevolume[] = {"pamixer", "-i", "2", NULL };
+static const char *decreasevolume[] = {"pamixer", "-d", "2", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -108,6 +112,9 @@ static Key keys[] = {
   { MODKEY,                       XK_w,      spawn,          {.v = firefoxcmd } },
   { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = cmuscmd } },
   { MODKEY|ShiftMask,             XK_e,      spawn,          {.v = muttcmd } },
+  { 0, XF86XK_AudioLowerVolume, spawn, { .v = decreasevolume }  },
+  { 0, XF86XK_AudioRaiseVolume, spawn, { .v = increasevolume }  },
+  { 0, XF86XK_AudioMute, spawn, { .v = togglemute }  },
 };
 
 /* button definitions */
