@@ -69,9 +69,13 @@ static const char *firefoxcmd[] = { "firefox", NULL };
 static const char *cmuscmd[] = { "st", "-e", "cmus", NULL };
 static const char *muttcmd[] = { "st", "-e", "mutt", NULL };
 
-static const char *togglemute[]     = {"pamixer", "-t", NULL };
-static const char *increasevolume[] = {"pamixer", "-i", "2", NULL };
-static const char *decreasevolume[] = {"pamixer", "-d", "2", NULL };
+static const char *togglemute[]     = {"mute-volume.sh",  NULL };
+static const char *togglemicmute[] = {"mute-micro.sh", NULL};
+static const char *increasevolume[] = {"increase-volume.sh", NULL };
+static const char *decreasevolume[] = {"decrease-volume.sh", NULL };
+
+static const char *brupcmd[] = { "brightnessctl", "set", "10%+", NULL };
+static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -115,6 +119,9 @@ static Key keys[] = {
   { 0, XF86XK_AudioLowerVolume, spawn, { .v = decreasevolume }  },
   { 0, XF86XK_AudioRaiseVolume, spawn, { .v = increasevolume }  },
   { 0, XF86XK_AudioMute, spawn, { .v = togglemute }  },
+  { 0, XF86XK_AudioMicMute, spawn, { .v = togglemicmute }  },
+  { 0, XF86XK_MonBrightnessUp, spawn, { .v = brupcmd }  },
+  { 0, XF86XK_MonBrightnessDown, spawn, { .v = brdowncmd }  },
 };
 
 /* button definitions */
