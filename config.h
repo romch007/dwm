@@ -69,10 +69,10 @@ static const char *firefoxcmd[] = { "firefox", NULL };
 static const char *cmuscmd[] = { "st", "-e", "cmus", NULL };
 static const char *muttcmd[] = { "st", "-e", "mutt", NULL };
 
-static const char *togglemute[]     = {"mute-volume.sh",  NULL };
-static const char *togglemicmute[] = {"mute-micro.sh", NULL};
-static const char *increasevolume[] = {"increase-volume.sh", NULL };
-static const char *decreasevolume[] = {"decrease-volume.sh", NULL };
+static const char *togglemute[]     = {"/home/romain/.scripts/mute-volume.sh",  NULL };
+static const char *togglemicmute[] = {"/home/romain/.scripts/mute-micro.sh", NULL};
+static const char *increasevolume[] = {"/home/romain/.scripts/increase-volume.sh", NULL };
+static const char *decreasevolume[] = {"/home/romain/.scripts/decrease-volume.sh", NULL };
 
 static const char *brupcmd[] = { "brightnessctl", "set", "10%+", NULL };
 static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
@@ -99,10 +99,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_agrave,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_agrave,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_semicolon,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_semicolon, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_ampersand,              0)
 	TAGKEYS(                        XK_eacute,                 1)
 	TAGKEYS(                        XK_quotedbl,               2)
