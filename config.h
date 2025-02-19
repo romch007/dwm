@@ -4,7 +4,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const int gappx     = 17;                 /* gaps between windows */
+static const int gappx     = 15;                 /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -73,6 +73,7 @@ static const char *togglemute[]     = {"/home/romain/.scripts/mute-volume.sh",  
 static const char *togglemicmute[] = {"/home/romain/.scripts/mute-micro.sh", NULL};
 static const char *increasevolume[] = {"/home/romain/.scripts/increase-volume.sh", NULL };
 static const char *decreasevolume[] = {"/home/romain/.scripts/decrease-volume.sh", NULL };
+static const char *screenshot[] = {"/home/romain/.scripts/screenshot.sh", NULL };
 
 static const char *brupcmd[] = { "brightnessctl", "set", "10%+", NULL };
 static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
@@ -122,6 +123,7 @@ static Key keys[] = {
   { 0, XF86XK_AudioMicMute, spawn, { .v = togglemicmute }  },
   { 0, XF86XK_MonBrightnessUp, spawn, { .v = brupcmd }  },
   { 0, XF86XK_MonBrightnessDown, spawn, { .v = brdowncmd }  },
+  { 0, XK_Print, spawn, { .v = screenshot }  },
 };
 
 /* button definitions */
